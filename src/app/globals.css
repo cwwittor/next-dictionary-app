@@ -13,6 +13,17 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+
+    --white: 255, 255, 255;
+    --lighter-grey: 244, 244, 244;
+    --light-grey: 233, 233, 233;
+    --grey: 117, 117, 117;
+    --dark-grey: 58, 58, 58;
+    --dakrer-grey: 45, 45, 45;
+    --darkest-grey: 31, 31, 31;
+    --black: 5, 5, 5;
+    --purple: 164, 69, 237;
+    --pink: 255, 82, 82;
   }
 }
 
