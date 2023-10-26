@@ -7,7 +7,7 @@ import "./fontawesome";
 
 export default function Home() {
   return (
-    <main class="container mx-auto">
+    <main class="inter container mx-auto">
       <div class="flex justify-around">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -71,44 +71,78 @@ export default function Home() {
       </div>
       <div>
         <div>
-          <h1 class="inter text-4xl font-semibold">keyboard</h1>
+          <h1 class="text-4xl font-semibold">keyboard</h1>
           <span class="sans purple">/ki:bc:d/</span>
         </div>
         <a>Circle</a>
       </div>
-      <span class="">Noun</span>
+      <div class="flex items-center">
+        <span class="text-lg font-bold italic mr-4">noun</span>
+        <hr class="flex-grow border-t border-gray-300" />
+      </div>
       <div>
         <h6>Meaning</h6>
         <div>
-          <p>
-            (etc.) A set of keys used to operate a typewriter, computer etc.
-          </p>
-          <p>
-            A component of many instruments including the piano, organ, and
-            harpsichord consisting of usually black and white keys that cause
-            different tones to be produced when struck.
-          </p>
-          <p>
-            A device with keys of a musical keyboard, used to control electronic
-            sound-producing devices which may be built into or separate from the
-            keyboard device.
-          </p>
+          <ul class="list-disc list-inside">
+            <li>
+              (etc.) A set of keys used to operate a typewriter, computer etc.
+            </li>
+            <li>
+              A component of many instruments including the piano, organ, and
+              harpsichord consisting of usually black and white keys that cause
+              different tones to be produced when struck.
+            </li>
+            <li>
+              A device with keys of a musical keyboard, used to control
+              electronic sound-producing devices which may be built into or
+              separate from the keyboard device.
+            </li>
+          </ul>
         </div>
         <div>
           <span>Synonyms</span>
-          <span>electronic keyboard</span>
+          <span class="purple">electronic keyboard</span>
         </div>
       </div>
-      <span>verb</span>
       <div>
-        <span>Meaning</span>
-        <p>To type on a computer keyboard</p>
-        <p>&quot;Keyboarding is the part of this job I hate the most.&quot;</p>
+        <div class="flex items-center">
+          <span class="text-lg font-bold italic mr-4">verb</span>
+          <hr class="flex-grow border-t border-gray-300" />
+        </div>
+        <div>
+          <span class="grey text-base">Meaning</span>
+          <ul class="list-disc list-inside">
+            <li>To type on a computer keyboard</li>
+          </ul>
+          <p class="grey text-base">
+            &quot;Keyboarding is the part of this job I hate the most.&quot;
+          </p>
+        </div>
       </div>
       <br />
       <div>
-        <span>Source</span>
-        <span>https://en.wiktionary.org/wiki/keyboard</span>
+        <p class="grey underline text-sm">Source</p>
+        <a
+          class="flex items-center text-sm"
+          href="https://https://en.wiktionary.org/wiki/keyboard"
+        >
+          <span>https://en.wiktionary.org/wiki/keyboard</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+          >
+            <path
+              fill="none"
+              stroke="#838383"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M6.09 3.545H2.456A1.455 1.455 0 0 0 1 5v6.545A1.455 1.455 0 0 0 2.455 13H9a1.455 1.455 0 0 0 1.455-1.455V7.91m-5.091.727 7.272-7.272m0 0H9m3.636 0V5"
+            />
+          </svg>
+        </a>
       </div>
     </main>
   );

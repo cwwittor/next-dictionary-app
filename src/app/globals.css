@@ -71,8 +71,20 @@
   }
 }
 
+.grey {
+  color: var(--grey);
+}
+
+.white {
+  color: var(--white);
+}
+
 .purple {
   color: var(--purple);
+}
+
+.black {
+  color: var(--black);
 }
 
 .inter {
