@@ -7,7 +7,7 @@ import "./fontawesome";
 
 export default function Home() {
   return (
-    <main class="inter container mx-auto">
+    <main class="inter container">
       <div class="flex justify-around">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -69,33 +69,49 @@ export default function Home() {
           </svg>
         </a>
       </div>
-      <div>
+      <div class="flex justify-between">
         <div>
           <h1 class="text-4xl font-semibold">keyboard</h1>
           <span class="sans purple">/ki:bc:d/</span>
         </div>
-        <a>Circle</a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="75"
+          height="75"
+          viewBox="0 0 75 75"
+        >
+          <g fill="#A445ED" fill-rule="evenodd">
+            <circle cx="37.5" cy="37.5" r="37.5" opacity=".25" />
+            <path d="M29 27v21l21-10.5z" />
+          </g>
+        </svg>
       </div>
       <div class="flex items-center">
         <span class="text-lg font-bold italic mr-4">noun</span>
         <hr class="flex-grow border-t border-gray-300" />
       </div>
       <div>
-        <h6>Meaning</h6>
+        <h6 class="grey text-base">Meaning</h6>
         <div>
-          <ul class="list-disc list-inside">
-            <li>
-              (etc.) A set of keys used to operate a typewriter, computer etc.
+          <ul class="marker:text-green list-outside list-disc pl-3">
+            <li class="purple pl-3">
+              <div class="black">
+                (etc.) A set of keys used to operate a typewriter, computer etc.
+              </div>
             </li>
-            <li>
-              A component of many instruments including the piano, organ, and
-              harpsichord consisting of usually black and white keys that cause
-              different tones to be produced when struck.
+            <li class="purple pl-3">
+              <div class="black">
+                A component of many instruments including the piano, organ, and
+                harpsichord consisting of usually black and white keys that
+                cause different tones to be produced when struck.
+              </div>
             </li>
-            <li>
-              A device with keys of a musical keyboard, used to control
-              electronic sound-producing devices which may be built into or
-              separate from the keyboard device.
+            <li class="purple pl-3">
+              <div class="black">
+                A device with keys of a musical keyboard, used to control
+                electronic sound-producing devices which may be built into or
+                separate from the keyboard device.
+              </div>
             </li>
           </ul>
         </div>
@@ -111,8 +127,10 @@ export default function Home() {
         </div>
         <div>
           <span class="grey text-base">Meaning</span>
-          <ul class="list-disc list-inside">
-            <li>To type on a computer keyboard</li>
+          <ul class="list-disc list-outside pl-3">
+            <li class="purple pl-3">
+              <div class="black">To type on a computer keyboard</div>
+            </li>
           </ul>
           <p class="grey text-base">
             &quot;Keyboarding is the part of this job I hate the most.&quot;
