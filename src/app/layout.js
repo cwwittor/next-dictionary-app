@@ -11,9 +11,25 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body class="m-6" className={inter.className}>
-        {children}
-      </body>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body class="m-6">{children}</body>
     </html>
   );
 }
