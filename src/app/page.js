@@ -17,9 +17,6 @@ import DictionaryHelp from "./dictionaryHelp.js";
 export default function Home() {
   // const [selectedFont, setSelectedFont] = useState("inter");
 
-  // const handleFontChange = (event) => {
-  //   setSelectedFont(event.target.value);
-  // };
   const [searchValue, setSearchValue] = useState("");
 
   const [elementsString, setElementsString] = useState("");
@@ -30,17 +27,26 @@ export default function Home() {
   }
 
   const fetchData = async () => {
-    try {
-      // Call the `DictionaryHelp` function with the updated search value
+    if (!!searchValue) {
+      try {
+        // Call the `DictionaryHelp` function with the updated search value
+        const updatedElementsString = await DictionaryHelp(
+          searchValue,
+          handlePlayAudio // Pass handlePlayAudio as a prop
+        );
+
+        // Update the state with the elements string
+        setElementsString(updatedElementsString);
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
       const updatedElementsString = await DictionaryHelp(
-        searchValue,
+        "example",
         handlePlayAudio // Pass handlePlayAudio as a prop
       );
 
-      // Update the state with the elements string
       setElementsString(updatedElementsString);
-    } catch (error) {
-      console.error(error);
     }
   };
 
@@ -111,7 +117,7 @@ export default function Home() {
           </svg>
         </div>
       </div>
-      <div class="flex items-center bg-white rounded-lg shadow-md">
+      <div class="flex items-center bg-white rounded-lg shadow-md my-px">
         <form
           class="flex justify-between flex-shrink-0 w-full"
           onSubmit={handleSearch}
