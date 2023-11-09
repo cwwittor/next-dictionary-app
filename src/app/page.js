@@ -21,6 +21,8 @@ export default function Home() {
 
   const [elementsString, setElementsString] = useState("");
 
+  const [darkMode, setDarkMode] = useState(false);
+
   function handlePlayAudio() {
     const audioPlayer = document.getElementById("audioPlayer");
     audioPlayer.play();
@@ -69,7 +71,14 @@ export default function Home() {
   // });
 
   return (
-    <main class="container font-inconsolata">
+    <main
+      className={`max-w-xs bg-cover	container font-inconsolata ${
+        darkMode ? "dark" : ""
+      }`}
+      style={{
+        margin: "0 auto",
+      }}
+    >
       <div class="flex justify-around">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +106,11 @@ export default function Home() {
           </select>
           <div class="vl"></div>
           <label class="switch">
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={darkMode}
+              onChange={() => setDarkMode(!darkMode)}
+            />
             <span class="slider round"></span>
           </label>
           <svg
@@ -117,7 +130,7 @@ export default function Home() {
           </svg>
         </div>
       </div>
-      <div class="flex items-center bg-white rounded-lg shadow-md my-px">
+      <div class="flex items-center bg-white rounded-lg shadow-md my-4">
         <form
           class="flex justify-between flex-shrink-0 w-full"
           onSubmit={handleSearch}
@@ -152,7 +165,7 @@ export default function Home() {
           class="flex items-center text-sm"
           href="https://https://en.wiktionary.org/wiki/keyboard"
         >
-          <span>https://en.wiktionary.org/wiki/keyboard</span>
+          <span>https://en.wiktionary.org/wiki/keyboard&#xFEFF;</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14"
