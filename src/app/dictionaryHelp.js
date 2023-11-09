@@ -42,17 +42,17 @@ async function getData(query, handlePlayAudio) {
 
   data[0].meanings.forEach((word) => {
     htmlString += `<div class="flex items-center">
-    <span class="text-lg font-bold italic mr-4">${word.partOfSpeech}</span>
+    <span class="text-lg font-bold italic mr-4 my-3">${word.partOfSpeech}</span>
     <hr class="flex-grow border-t border-gray-300" />
   </div>
   <div>
-    <h6 class="grey text-base">Meaning</h6>
+    <h6 class="grey text-base my-2">Meaning</h6>
     <div>
       <ul class="marker:text-green list-outside list-disc pl-3">`;
 
     word.definitions.forEach((meaning) => {
       // Generate HTML syntax using meaning's definition
-      let meaningHtml = `<li class="purple pl-3">
+      let meaningHtml = `<li class="purple pl-3 my-2">
       <div class="black">
         ${meaning.definition}
       </div>
