@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body class="m-6">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

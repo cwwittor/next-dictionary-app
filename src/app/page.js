@@ -14,6 +14,8 @@ import { useEffect, useState } from "react";
 // import WordDefinition from "./worddefinition.js";
 import DictionaryHelp from "./dictionaryHelp.js";
 
+const searchCache = {};
+
 export default function Home() {
   // const [selectedFont, setSelectedFont] = useState("inter");
 
@@ -23,22 +25,27 @@ export default function Home() {
 
   const [darkMode, setDarkMode] = useState(false);
 
-  function handlePlayAudio() {
-    const audioPlayer = document.getElementById("audioPlayer");
-    audioPlayer.play();
-  }
-
   const fetchData = async () => {
     if (!!searchValue) {
       try {
-        // Call the `DictionaryHelp` function with the updated search value
-        const updatedElementsString = await DictionaryHelp(
-          searchValue,
-          handlePlayAudio // Pass handlePlayAudio as a prop
-        );
+        // Check if the search term is in the cache
+        if (searchCache.hasOwnProperty(searchValue)) {
+          // Use the cached result
+          const updatedElementsString = searchCache[searchValue];
+          setElementsString(updatedElementsString);
+        } else {
+          // Call the `DictionaryHelp` function with the updated search value
+          const updatedElementsString = await DictionaryHelp(
+            searchValue,
+            handlePlayAudio // Pass handlePlayAudio as a prop
+          );
 
-        // Update the state with the elements string
-        setElementsString(updatedElementsString);
+          // Update the cache
+          searchCache[searchValue] = updatedElementsString;
+
+          // Update the state with the elements string
+          setElementsString(updatedElementsString);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -51,6 +58,11 @@ export default function Home() {
       setElementsString(updatedElementsString);
     }
   };
+
+  function handlePlayAudio() {
+    const audioPlayer = document.getElementById("audioPlayer");
+    audioPlayer.play();
+  }
 
   useEffect(() => {
     fetchData();

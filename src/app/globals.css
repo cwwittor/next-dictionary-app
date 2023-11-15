@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: "Inter";
   src: url("../../public/fonts/inter/Inter-VariableFont_slnt\,wght.ttf")
     format("woff2-variations");
@@ -14,7 +14,7 @@
   src: url("../../public/fonts/inconsolata/Inconsolata-VariableFont_wdth\,wght.ttf")
     format("woff2-variations");
   font-weight: 100 900;
-}
+} 
 
 @font-face {
   font-family: "Lora";
@@ -28,7 +28,7 @@
   src: url("../../public/fonts/sans/OpenSans-VariableFont_wdth\,wght.ttf")
     format("woff2-variations");
   font-weight: 100 900;
-}
+}*/
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -71,6 +71,11 @@
   }
 }
 
+.dark {
+  background-color: var(--black);
+  color: var(--white);
+}
+
 .grey {
   color: var(--grey);
 }
@@ -87,7 +92,7 @@
   color: var(--black);
 }
 
-.inter {
+/* .inter {
   font-family: var(--inter);
 }
 
@@ -101,7 +106,7 @@
 
 .sans {
   font-family: var(--sans);
-}
+}*/
 
 body {
   color: rgb(var(--foreground-rgb));
