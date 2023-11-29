@@ -25,37 +25,31 @@ export default function Home() {
 
   const [darkMode, setDarkMode] = useState(false);
 
-  const fetchData = async () => {
-    if (!!searchValue) {
-      try {
-        // Check if the search term is in the cache
-        if (searchCache.hasOwnProperty(searchValue)) {
-          // Use the cached result
-          const updatedElementsString = searchCache[searchValue];
-          setElementsString(updatedElementsString);
-        } else {
-          // Call the `DictionaryHelp` function with the updated search value
-          const updatedElementsString = await DictionaryHelp(
-            searchValue,
-            handlePlayAudio // Pass handlePlayAudio as a prop
-          );
+  const handleSearch = async (e) => {
+    e.preventDefault(); // Prevent form submission
 
-          // Update the cache
-          searchCache[searchValue] = updatedElementsString;
+    console.log(searchValue);
 
-          // Update the state with the elements string
-          setElementsString(updatedElementsString);
-        }
-      } catch (error) {
-        console.error(error);
+    try {
+      const response = await fetch(`/api/search`, {
+        method: "POST",
+        body: JSON.stringify({ query: searchValue }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log(response);
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
       }
-    } else {
-      const updatedElementsString = await DictionaryHelp(
-        "example",
-        handlePlayAudio // Pass handlePlayAudio as a prop
-      );
 
-      setElementsString(updatedElementsString);
+      const { elementsString } = await response.json();
+      setElementsString(elementsString);
+    } catch (error) {
+      console.log("hi");
+      console.error(error);
     }
   };
 
@@ -64,16 +58,9 @@ export default function Home() {
     audioPlayer.play();
   }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const handleSearch = (e) => {
-    e.preventDefault(); // Prevent form submission
-
-    // Perform search operation
-    fetchData();
-  };
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   // const playButton = document.getElementById("playButton");
   // const audioPlayer = document.getElementById("audioPlayer");
